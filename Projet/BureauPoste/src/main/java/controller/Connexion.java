@@ -4,22 +4,20 @@ public class Connexion {
 	public static Connection connect() {
 		Connection con = null;
 		try {
-			con = DriverManager.getConnection("jdbc:mysql://100.116.103.64:1524/tier2", "omar", "amrou2009@");
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			con = DriverManager.getConnection("jdbc:mysql://100.116.103.64:1524/poste", "omar", "amrou2009@");
 			System.out.println("connected");
 		}
 		catch (SQLException e) {
 			System.out.println(e);
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		
 		return con;
 	}
 
 
-	public static void main(String[] args) {
-		Connexion con = new Connexion();
-		Connection connect = con.connect();
-		
-		
-	}
 	
 }
