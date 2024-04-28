@@ -5,7 +5,7 @@ public class Connexion {
 		Connection con = null;
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			con = DriverManager.getConnection("jdbc:mysql://100.116.103.64:1524/poste", "omar", "amrou2009@");
+			con = DriverManager.getConnection("jdbc:mysql://100.116.103.64:1524/sncft", "omar", "amrou2009@");
 			System.out.println("connected");
 		}
 		catch (SQLException e) {

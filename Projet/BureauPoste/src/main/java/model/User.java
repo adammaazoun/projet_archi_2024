@@ -44,4 +44,7 @@ public static boolean addUser(String CIN, String nom, String prenom, String adr_
 		}
 		return false;
 	}
+
+
 }
+

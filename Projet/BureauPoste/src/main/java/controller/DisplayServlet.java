@@ -5,20 +5,20 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import model.Traffic;
+
 import java.io.IOException;
-import model.User;
 
 /**
- * Servlet implementation class LoginServlet
+ * Servlet implementation class DisplayServlet
  */
-@WebServlet("/loginServlet")
-public class LoginServlet extends HttpServlet {
+public class DisplayServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LoginServlet() {
+    public DisplayServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -26,23 +26,30 @@ public class LoginServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String user = request.getParameter("username");
-		String password = request.getParameter("pass");
-		if (User.verifUser(user,password)) {
-			response.sendRedirect("DisplayServlet.java");
+		try {
+			if (Traffic.verifEmpty()) {
+				request.getSession().setAttribute("empty", true);
+			}
+			else {
+				request.getSession().setAttribute("empty", false);
+			}
+			response.sendRedirect("page2.jsp");
 			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-		else {
-			response.getWriter().write("wrong credentials");
-			request.getRequestDispatcher("login.html").include(request,response);
-		}
+
 	}
 
 }
