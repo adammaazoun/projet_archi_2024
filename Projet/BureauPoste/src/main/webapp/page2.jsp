@@ -27,7 +27,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-image: url('images/bg-01.jpg') ;background-size: cover; background-repeat: no-repeat;">
         <div class="container">
             <!-- Navbar brand -->
-            <a class="navbar-brand" href="#">Suivi Colis </a>
+            <a class="navbar-brand" href="#">SNCFT </a>
 
             <!-- Navbar toggle button (for mobile) -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,11 +38,9 @@
             <div class="collapse navbar-collapse" id="navbarNav" >
                 <ul class="navbar-nav mx-auto">
                     <!-- Middle navigation elements -->
+              
                     <li class="nav-item">
-                        <a class="nav-link" href="#" style="margin-right: 30px; font-size: 20px;">Colis Actuels</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" style="margin-left: 30px; font-size: 20px;">Historique</a>
+                        <a class="nav-link" href="#" style="margin-left: 30px; font-size: 20px;">     </a>
                     </li>
                 </ul>
 
@@ -56,21 +54,33 @@
     <!-- Your content goes here -->
     <div class="container mt-5">
         <br>
-        <h1>Hello</h1>
-        <p>
         <%@ page import ="model.Traffic" %>
         <%@ page import ="java.util.ArrayList" %>
         <%! ArrayList<String[]> t;%>
         <% t=Traffic.display();%>
-        <table>
+        
+        <table class="table table-hover">
+        <tbody>
+        <tr>
+        <th>id</th>
+        <th>depart</th>
+        <th>arrivee</th>
+        <th>prix</th>
+        <th>nb_billet</th>
+        </tr>
     <% for(String[] row : t) { %>
         <tr>
             <% for(String cell : row) { %>
                 <td><%= cell %></td>
             <% } %>
+            <td><a href="page4.jsp" class="btn btn-warning"> Modifier </a></td>
+            <td><a href="" class="btn btn-danger"> Supprimer </a></td>
         </tr>
     <% } %>
-</table></p>
+    </tbody>
+</table>
+<a href="page3.jsp" class="btn btn-info"> Ajouter </a>
     </div>
+    
 </body>
 </html>

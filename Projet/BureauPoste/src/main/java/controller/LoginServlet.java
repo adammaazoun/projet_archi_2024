@@ -36,7 +36,7 @@ public class LoginServlet extends HttpServlet {
 		String user = request.getParameter("username");
 		String password = request.getParameter("pass");
 		if (User.verifUser(user,password)) {
-			response.sendRedirect("DisplayServlet.java");
+			response.sendRedirect("DisplayServlet");
 			
 		}
 		else {
