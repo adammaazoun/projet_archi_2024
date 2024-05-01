@@ -48,8 +48,7 @@ list =Traffic.displayById(id);
        <form action="CRUDServlet" method="POST">
        <br><br>
        <input type="hidden" name="action" value="update">
-		<label for="id" class="form-label">id: </label>
-		<input type="text" name="id" class="form-control" id="id" value="<%=id%>" ><br>
+		<input type="hidden" name="id" class="form-control" id="id" value="<%=id%>" >
 		<label for="depart" >depart: </label>
 		<input type="text" name="depart" class="form-control" id="depart" value="<%=list[1]%>"><br>
 		<label for="arrivee">arrivee: </label>

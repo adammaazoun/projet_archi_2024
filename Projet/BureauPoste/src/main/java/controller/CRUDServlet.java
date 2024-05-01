@@ -6,7 +6,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
-
+@WebServlet("/CRUDServlet")
 /**
  * Servlet implementation class CRUDServlet
  */
@@ -34,8 +34,10 @@ public class CRUDServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String action = request.getParameter("action");
 		if(action.equals("update")) {
+			System.out.println(" aaaaa");
 			Traffic.update(request.getParameter("id"),request.getParameter("depart"),request.getParameter("arrivee"),request.getParameter("prix"),request.getParameter("nbbillet"));
 		}
+		response.sendRedirect("DisplayServlet");
 	}
 
 }

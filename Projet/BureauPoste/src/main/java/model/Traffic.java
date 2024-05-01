@@ -81,9 +81,13 @@ public class Traffic {
 	
 	public static void update (String id, String depart, String arrivee, String prix, String nbbillet) {
 		try {
-	        PreparedStatement req = con.prepareStatement("update traffic set id=? and depart=? and arrivee=? and prix=? and nbbillet=?");
-	        
-	        
+	        PreparedStatement ps = con.prepareStatement("update traffic set  depart=?, arrivee=?, prix=?, nbbillets=? where id="+id);
+	        System.out.println(id+depart+arrivee+prix+nbbillet);
+	        ps.setString(1,depart);
+	        ps.setString(2,arrivee);
+	        ps.setFloat(3,Float.parseFloat(prix));
+	        ps.setInt(4,Integer.parseInt(nbbillet));
+	        int n = ps.executeUpdate();
 	   
 	        
 	        
