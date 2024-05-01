@@ -51,7 +51,36 @@ public class Traffic {
 	    }
 	    return null;
 	}
-
-
+	
+	public static String[] displayById(String id) {
+		try {
+	        Statement req = con.createStatement();
+	        ResultSet rs = req.executeQuery("SELECT * FROM traffic where id="+id);
+	        
+	        if (rs.next()) {
+	            int i = rs.getInt(1);
+	            String dep = rs.getString(2);
+	            String arr = rs.getString(3);
+	            float prix = rs.getFloat(4);
+	            int n = rs.getInt(5);
+	            String[] k = {String.valueOf(i), dep, arr, String.valueOf(prix), String.valueOf(n)};
+	            return k;
+	        }
+	   
+	        else {
+	        	return null;
+	        }
+	        
+	        
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
+		return null;
+	   
+	}
+	
+	public static void update () {
+		
+	}
 
 }

@@ -73,7 +73,7 @@
             <% for(String cell : row) { %>
                 <td><%= cell %></td>
             <% } %>
-            <td><a href="page4.jsp" class="btn btn-warning"> Modifier </a></td>
+            <td><a href="page3.jsp?id=<%= row[0] %>" class="btn btn-warning"> Modifier </a></td>
             <td><a href="" class="btn btn-danger"> Supprimer </a></td>
         </tr>
     <% } %>
