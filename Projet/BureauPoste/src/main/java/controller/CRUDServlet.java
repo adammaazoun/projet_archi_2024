@@ -25,7 +25,9 @@ public class CRUDServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		String id=request.getParameter("id");
+		Traffic.delete(id);
+		response.sendRedirect("DisplayServlet");
 	}
 
 	/**
@@ -34,8 +36,13 @@ public class CRUDServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String action = request.getParameter("action");
 		if(action.equals("update")) {
-			System.out.println(" aaaaa");
+			
 			Traffic.update(request.getParameter("id"),request.getParameter("depart"),request.getParameter("arrivee"),request.getParameter("prix"),request.getParameter("nbbillet"));
+		}
+		
+		
+		if (action.equals("insert")) {
+			Traffic.insert(request.getParameter("id"),request.getParameter("depart"),request.getParameter("arrivee"),request.getParameter("prix"),request.getParameter("nbbillet"));
 		}
 		response.sendRedirect("DisplayServlet");
 	}

@@ -82,7 +82,7 @@ public class Traffic {
 	public static void update (String id, String depart, String arrivee, String prix, String nbbillet) {
 		try {
 	        PreparedStatement ps = con.prepareStatement("update traffic set  depart=?, arrivee=?, prix=?, nbbillets=? where id="+id);
-	        System.out.println(id+depart+arrivee+prix+nbbillet);
+	        
 	        ps.setString(1,depart);
 	        ps.setString(2,arrivee);
 	        ps.setFloat(3,Float.parseFloat(prix));
@@ -92,6 +92,35 @@ public class Traffic {
 	        
 	        
 	        
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
+	}
+	
+	public static void insert(String id, String depart, String arrivee, String prix, String nbbillet) {
+		try {
+			
+	        PreparedStatement ps = con.prepareStatement("insert into traffic (id,depart,arrivee,prix,nbbillets) values(?,?,?,?,?) ");
+	        ps.setInt(1, Integer.parseInt(id));
+	        ps.setString(2,depart);
+	        ps.setString(3,arrivee);
+	        ps.setFloat(4,Float.parseFloat(prix));
+	        ps.setInt(5,Integer.parseInt(nbbillet));
+	        int n = ps.executeUpdate();
+	   
+	        
+	        
+	        
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
+	}
+	
+	public static void delete(String id) {
+		try {
+			 PreparedStatement ps = con.prepareStatement("delete from traffic where id="+id);
+			 
+			 int n = ps.executeUpdate();
 	    } catch (SQLException e) {
 	        e.printStackTrace();
 	    }

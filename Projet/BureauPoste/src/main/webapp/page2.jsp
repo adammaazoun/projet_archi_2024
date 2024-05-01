@@ -73,13 +73,13 @@
             <% for(String cell : row) { %>
                 <td><%= cell %></td>
             <% } %>
-            <td><a href="page3.jsp?id=<%= row[0] %>" class="btn btn-warning"> Modifier </a></td>
-            <td><a href="" class="btn btn-danger"> Supprimer </a></td>
+            <td><a href="page3.jsp?id=<%= row[0] %>" class="btn btn-outline-warning"> Modifier </a></td>
+            <td><a href="CRUDServlet?id='<%= row[0] %>'" class="btn btn-outline-danger"> Supprimer </a></td>
         </tr>
     <% } %>
     </tbody>
 </table>
-<a href="page3.jsp" class="btn btn-info"> Ajouter </a>
+<a href="ajouter.html" class="btn btn-outline-info"> Ajouter </a>
     </div>
     
 </body>
