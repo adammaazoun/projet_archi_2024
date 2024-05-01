@@ -45,9 +45,9 @@ list =Traffic.displayById(id);
 
     <!-- Your content goes here -->
     <div class="container mt-5">
-       <form action="CRUDServlet?action='update'" method="POST">
-       <br><br> 
-       
+       <form action="CRUDServlet" method="POST">
+       <br><br>
+       <input type="hidden" name="action" value="update">
 		<label for="id" class="form-label">id: </label>
 		<input type="text" name="id" class="form-control" id="id" value="<%=id%>" ><br>
 		<label for="depart" >depart: </label>

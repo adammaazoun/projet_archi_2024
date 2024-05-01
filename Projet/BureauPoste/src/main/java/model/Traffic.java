@@ -79,8 +79,18 @@ public class Traffic {
 	   
 	}
 	
-	public static void update () {
-		
+	public static void update (String id, String depart, String arrivee, String prix, String nbbillet) {
+		try {
+	        PreparedStatement req = con.prepareStatement("update traffic set id=? and depart=? and arrivee=? and prix=? and nbbillet=?");
+	        
+	        
+	   
+	        
+	        
+	        
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
 	}
 
 }
