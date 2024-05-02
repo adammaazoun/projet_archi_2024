@@ -35,7 +35,7 @@ public class SignupServlet extends HttpServlet {
 		String login = request.getParameter("login");
 		String mdp = request.getParameter("mdp");
 		User.addUser(CIN, nom, prenom, adr_u, login, mdp);
-		response.getWriter().write("ok");
+		request.getRequestDispatcher("login.html").forward(request, response);
 	}
 
 	/**
